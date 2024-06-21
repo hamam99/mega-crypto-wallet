@@ -17,6 +17,7 @@ const Button = ({
   containerClassname,
   labelClassname,
   mode = "primary",
+  disabled,
 }: ButtonProps) => {
   return (
     <TouchableOpacity
@@ -25,13 +26,16 @@ const Button = ({
         "rounded-lg w-full h-[56px] justify-center items-center",
         getContainerTheme(mode),
         containerClassname,
+        disabled && "bg-slate-400",
       )}
+      disabled={disabled}
     >
       <Text
         className={classNames(
           "text-base font-bold",
           getLabelTheme(mode),
           labelClassname,
+          disabled && "text-slate-200",
         )}
       >
         {label}
