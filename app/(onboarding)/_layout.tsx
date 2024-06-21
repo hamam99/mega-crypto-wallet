@@ -1,8 +1,12 @@
 import { Image, Text, View } from "react-native";
 import GearImg from "../../assets/images/gear.png";
 import Button from "@/components/button";
+import { router } from "expo-router";
 
 const Onboarding = () => {
+  const gotoCreateWallet = () => {
+    router.push("/wallet-create");
+  };
   return (
     <View className="flex-1 justify-center p-[24px] gap-2">
       <Image
@@ -18,6 +22,7 @@ const Onboarding = () => {
         label="Create A New Wallet"
         mode="primary"
         containerClassname="mt-6"
+        onPress={gotoCreateWallet}
       />
     </View>
   );
