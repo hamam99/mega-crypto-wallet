@@ -53,7 +53,13 @@ const WalletSecure = (props: WalletSecureProps) => {
           />
         </View>
         <View>
-          <Button label="Start" mode="primary" />
+          <Button
+            label="Start"
+            mode="primary"
+            onPress={() => {
+              router.navigate("/seed-phrase-create");
+            }}
+          />
         </View>
       </View>
       <SeedPhraseModal ref={seedPhraseModalRef} />

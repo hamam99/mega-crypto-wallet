@@ -57,6 +57,10 @@ export default function RootLayout() {
               name="wallet-secure"
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="seed-phrase-create"
+              options={{ headerShown: false }}
+            />
           </Stack>
         </SafeAreaView>
       </GestureHandlerRootView>
