@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Switch, Text, TouchableOpacity, View } from "react-native";
 import Checkbox from "expo-checkbox";
 import Button from "@/components/button";
+import { useRouter } from "expo-router";
 
 const WalletCreate = () => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -16,6 +17,11 @@ const WalletCreate = () => {
   const [isChecked, setIsChecked] = useState(false);
   const toggleCheckbox = () => setIsChecked(!isChecked);
 
+  const router = useRouter();
+
+  const gotoSecureWallet = () => {
+    router.navigate("/wallet-secure");
+  };
   return (
     <View className="flex-1 p-4 gap-y-3">
       <StepBar currentStep={1} totalSteps={3} />
@@ -64,7 +70,7 @@ const WalletCreate = () => {
           </Text>
         </View>
       </View>
-      <Button label="Create Password" />
+      <Button label="Create Password" onPress={gotoSecureWallet} />
     </View>
   );
 };
