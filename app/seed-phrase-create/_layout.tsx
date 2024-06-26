@@ -129,7 +129,7 @@ const SeedPhraseCreate = (props: SeedPhraseCreateProps) => {
       </View>
       <Button
         label="Continue"
-        disabled={selectedWords?.length <= 0}
+        disabled={selectedWords?.length <= 3}
         onPress={() => {}}
       />
     </View>
