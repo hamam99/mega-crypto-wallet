@@ -1,6 +1,7 @@
 import Button from "@/components/button";
 import StepBar from "@/components/step-bar";
 import classNames from "classnames";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
@@ -54,6 +55,8 @@ const twelveRandomWords = getRandomWords(12);
 
 const SeedPhraseCreate = (props: SeedPhraseCreateProps) => {
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
+
+  const router = useRouter();
 
   return (
     <View className="flex-1 p-4 gap-y-3">
@@ -129,8 +132,10 @@ const SeedPhraseCreate = (props: SeedPhraseCreateProps) => {
       </View>
       <Button
         label="Continue"
-        disabled={selectedWords?.length <= 3}
-        onPress={() => {}}
+        disabled={selectedWords?.length < 3}
+        onPress={() => {
+          router.navigate("/wallet-create-done");
+        }}
       />
     </View>
   );
