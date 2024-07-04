@@ -43,28 +43,18 @@ export default function RootLayout() {
         <SafeAreaView className="flex-1">
           <NotificationsProvider />
 
-          <Stack initialRouteName="(onboarding)">
+          <Stack
+            initialRouteName="(onboarding)"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="(onboarding)" />
+            <Stack.Screen name="wallet-create" />
+            <Stack.Screen name="wallet-secure" />
+            <Stack.Screen name="seed-phrase-create" />
+            <Stack.Screen name="wallet-create-done" />
             <Stack.Screen name="+not-found" />
-            <Stack.Screen
-              name="(onboarding)"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="wallet-create"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="wallet-secure"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="seed-phrase-create"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="wallet-create-done"
-              options={{ headerShown: false }}
-            />
           </Stack>
         </SafeAreaView>
       </GestureHandlerRootView>
