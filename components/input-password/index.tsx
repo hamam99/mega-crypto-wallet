@@ -8,6 +8,7 @@ type InputPasswordProps = {
   secureTextEntry?: boolean;
   label?: string;
   error?: string;
+  placeholder?: string;
 };
 
 const InputPassword = ({
@@ -16,6 +17,7 @@ const InputPassword = ({
   secureTextEntry = false,
   label,
   error,
+  placeholder,
 }: InputPasswordProps) => {
   const [secureTextEntryLocal, setSecureTextEntryLocal] = useState(false);
 
@@ -25,13 +27,15 @@ const InputPassword = ({
   return (
     <View className="">
       <View className="w-full rounded-[4px] py-2 px-4 bg-white">
-        <Text className="text-slate-400">{label}</Text>
+        {label && <Text className="text-slate-400">{label}</Text>}
         <View className="flex-row items-center">
           <TextInput
             value={value}
             secureTextEntry={secureTextEntryLocal}
             onChangeText={onChangeText}
             className="flex-1 h-[40px]"
+            placeholder={placeholder}
+            placeholderTextColor={"#AFB4C0"}
           />
           <TouchableOpacity
             onPress={() => {
