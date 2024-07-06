@@ -44,7 +44,7 @@ export default function RootLayout() {
           <NotificationsProvider />
 
           <Stack
-            initialRouteName="(onboarding)"
+            // initialRouteName="wallet-create"
             screenOptions={{
               headerShown: false,
             }}
