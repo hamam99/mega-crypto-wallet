@@ -2,8 +2,10 @@ import StepBar from "@/components/step-bar";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import LoveImage from "@/assets/images/love.png";
 import Button from "@/components/button";
+import { useRouter } from "expo-router";
 
 const WalletCreateDone = () => {
+  const router = useRouter();
   return (
     <View className="flex-1 p-4 gap-y-3">
       <StepBar currentStep={3} totalSteps={3} />
@@ -38,7 +40,12 @@ const WalletCreateDone = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <Button label="Continue" />
+      <Button
+        label="Continue"
+        onPress={() => {
+          router.navigate("/(onboarding)");
+        }}
+      />
     </View>
   );
 };
