@@ -1,6 +1,7 @@
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
+import classNames from "classnames";
 
 type InputPasswordProps = {
   value?: string;
@@ -9,6 +10,7 @@ type InputPasswordProps = {
   label?: string;
   error?: string;
   placeholder?: string;
+  containerClassname?: string;
 };
 
 const InputPassword = ({
@@ -18,6 +20,7 @@ const InputPassword = ({
   label,
   error,
   placeholder,
+  containerClassname,
 }: InputPasswordProps) => {
   const [secureTextEntryLocal, setSecureTextEntryLocal] = useState(false);
 
@@ -26,7 +29,12 @@ const InputPassword = ({
   }, [secureTextEntry]);
   return (
     <View className="">
-      <View className="w-full rounded-[4px] py-2 px-4 bg-white">
+      <View
+        className={classNames(
+          "w-full rounded-[4px] py-2 px-4 bg-white",
+          containerClassname,
+        )}
+      >
         {label && <Text className="text-slate-400">{label}</Text>}
         <View className="flex-row items-center">
           <TextInput

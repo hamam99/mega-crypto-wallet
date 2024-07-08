@@ -22,12 +22,26 @@ const WalletCreate = () => {
   const gotoSecureWallet = () => {
     router.navigate("/wallet-secure");
   };
+
+  const isButtonDisabled = () => {
+    if (!currentPassword || !confirmPassword) {
+      return true;
+    }
+    if (currentPassword !== confirmPassword) {
+      return true;
+    }
+    if (!isChecked) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <View className="flex-1 p-4 gap-y-3">
       <StepBar currentStep={1} totalSteps={3} />
       <View className="flex-1">
         <Text className="font-bold text-[18px]">Create Password</Text>
-        <Text className=" text-base text-slate-500">
+        <Text className="text-base text-slate-500">
           This password will unlock your Cryptooly wallet only on this service
         </Text>
         <View className="pt-3" style={{ gap: 12 }}>
@@ -70,7 +84,11 @@ const WalletCreate = () => {
           </Text>
         </View>
       </View>
-      <Button label="Create Password" onPress={gotoSecureWallet} />
+      <Button
+        label="Create Password"
+        onPress={gotoSecureWallet}
+        disabled={isButtonDisabled()}
+      />
     </View>
   );
 };
