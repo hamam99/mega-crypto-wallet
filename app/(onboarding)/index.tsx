@@ -11,7 +11,8 @@ const Onboarding = () => {
   const refImportFormSeedModal = useRef<ImportFormSeedModalRef>(null);
 
   const gotoCreateWallet = () => {
-    router.push("/wallet-create");
+    // router.push("/wallet-create");
+    router.push("/(home)");
   };
 
   const openLoginModal = () => {
