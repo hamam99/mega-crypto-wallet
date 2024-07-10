@@ -3,6 +3,8 @@ import { Text, TouchableOpacity, View } from "react-native";
 import Tokens from "./Tokens";
 import { Component, useState } from "react";
 import Collectibles from "./Collectibles";
+import Button from "@/components/shared/button";
+import { Feather } from "@expo/vector-icons";
 
 const ListToken = () => {
   const TABS = [
@@ -21,7 +23,7 @@ const ListToken = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <View>
+    <View className="flex-1">
       <View className="flex-row gap-2 py-2">
         {TABS.map((item, index) => {
           return (
