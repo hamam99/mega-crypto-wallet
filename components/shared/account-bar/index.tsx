@@ -11,15 +11,15 @@ type AccountBarProps = {
 const AccountBar = ({ avatar, name }) => {
   return (
     <View className="flex-row items-center gap-x-1">
-      <View className="bg-cyan-100 rounded-full w-[48px] h-[48px] justify-center items-center">
+      <View className="bg-cyan-100 rounded-full w-[32px] h-[32px] justify-center items-center">
         <Image
           source={avatar}
           placeholder={{ blurhash: blurhash }}
           transition={1000}
           style={{
-            width: 32,
-            height: 32,
-            borderRadius: 32,
+            width: 24,
+            height: 24,
+            borderRadius: 24,
           }}
         />
       </View>
