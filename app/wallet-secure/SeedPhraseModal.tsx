@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { View, Text } from "react-native";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
-import Button from "@/components/button";
+import Button from "@/components/shared/button";
 
 export interface SeedPhraseModalProps {}
 export type SeedPhraseModalRef = {

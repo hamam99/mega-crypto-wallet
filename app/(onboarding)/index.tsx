@@ -1,6 +1,6 @@
 import { Image, Text, View } from "react-native";
 import GearImg from "../../assets/images/gear.png";
-import Button from "@/components/button";
+import Button from "@/components/shared/button";
 import { router, Slot } from "expo-router";
 import ImportFormSeedModal, {
   ImportFormSeedModalRef,

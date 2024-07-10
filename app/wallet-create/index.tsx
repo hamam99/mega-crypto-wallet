@@ -1,9 +1,9 @@
-import InputPassword from "@/components/input-password";
-import StepBar from "@/components/step-bar";
+import InputPassword from "@/components/shared/input-password";
+import StepBar from "@/components/shared/step-bar";
 import { useState } from "react";
 import { Switch, Text, TouchableOpacity, View } from "react-native";
 import Checkbox from "expo-checkbox";
-import Button from "@/components/button";
+import Button from "@/components/shared/button";
 import { useRouter } from "expo-router";
 
 const WalletCreate = () => {

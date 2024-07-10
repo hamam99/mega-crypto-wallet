@@ -1,8 +1,8 @@
-import StepBar from "@/components/step-bar";
+import StepBar from "@/components/shared/step-bar";
 import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 
 import GuardImage from "../../assets/images/guard.png";
-import Button from "@/components/button";
+import Button from "@/components/shared/button";
 import { Link, useRouter } from "expo-router";
 import SeedPhraseModal, { SeedPhraseModalRef } from "./SeedPhraseModal";
 import { useRef } from "react";

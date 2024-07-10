@@ -1,8 +1,8 @@
 import { Text, View } from "react-native";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import { Ref, forwardRef, useImperativeHandle, useRef, useState } from "react";
-import InputPassword from "@/components/input-password";
-import Button from "@/components/button";
+import InputPassword from "@/components/shared/input-password";
+import Button from "@/components/shared/button";
 
 export interface ImportFormSeedModalProps {}
 export type ImportFormSeedModalRef = {

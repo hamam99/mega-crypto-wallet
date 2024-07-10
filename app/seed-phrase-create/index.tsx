@@ -1,5 +1,5 @@
-import Button from "@/components/button";
-import StepBar from "@/components/step-bar";
+import Button from "@/components/shared/button";
+import StepBar from "@/components/shared/step-bar";
 import classNames from "classnames";
 import { useRouter } from "expo-router";
 import { useState } from "react";

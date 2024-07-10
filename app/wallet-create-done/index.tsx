@@ -1,7 +1,7 @@
-import StepBar from "@/components/step-bar";
+import StepBar from "@/components/shared/step-bar";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import LoveImage from "@/assets/images/love.png";
-import Button from "@/components/button";
+import Button from "@/components/shared/button";
 import { useRouter } from "expo-router";
 
 const WalletCreateDone = () => {

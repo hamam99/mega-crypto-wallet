@@ -1,7 +1,7 @@
-import AccountBar from "@/components/account-bar";
+import AccountBar from "@/components/shared/account-bar";
 import { Text, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import AssetsTotal from "@/components/assets-total";
+import AssetsTotal from "@/components/shared/assets-total";
 const Home = () => {
   return (
     <View className="flex-1 p-[24px]">
@@ -16,7 +16,6 @@ const Home = () => {
         </TouchableOpacity>
       </View>
       <AssetsTotal />
-      
     </View>
   );
 };
