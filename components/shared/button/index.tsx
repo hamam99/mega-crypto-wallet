@@ -9,6 +9,7 @@ type ButtonProps = {
   disabled?: boolean | undefined;
   containerClassname?: string;
   labelClassname?: string;
+  leftIcon?: any;
 };
 
 const Button = ({
@@ -18,18 +19,20 @@ const Button = ({
   labelClassname,
   mode = "primary",
   disabled,
+  leftIcon,
 }: ButtonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       className={classNames(
-        "rounded-lg w-full h-[56px] justify-center items-center",
+        "rounded-lg w-full h-[56px] justify-center items-center flex-row",
         getContainerTheme(mode),
         containerClassname,
         disabled && "bg-slate-400",
       )}
       disabled={disabled}
     >
+      {leftIcon && leftIcon}
       <Text
         className={classNames(
           "text-base font-bold",
