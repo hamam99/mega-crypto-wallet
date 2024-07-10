@@ -2,6 +2,9 @@ import AccountBar from "@/components/shared/account-bar";
 import { Text, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import AssetsTotal from "@/components/shared/assets-total";
+import Menu from "@/components/separate/home/menu";
+import ListToken from "@/components/separate/home/list-token";
+
 const Home = () => {
   return (
     <View className="flex-1 p-[24px]">
@@ -16,6 +19,8 @@ const Home = () => {
         </TouchableOpacity>
       </View>
       <AssetsTotal />
+      <Menu />
+      <ListToken />
     </View>
   );
 };
