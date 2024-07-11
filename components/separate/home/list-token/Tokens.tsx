@@ -1,8 +1,15 @@
 import classNames from "classnames";
 import { Image } from "expo-image";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import TokenItem from "@/components/shared/token-item";
+import { useRouter } from "expo-router";
 
 export type TokenType = {
   id: number;
@@ -17,7 +24,7 @@ const Tokens = () => {
   const list: TokenType[] = [
     {
       id: 1,
-      name: "Ethereum",
+      name: "Ethereum 1",
       totalInCrypto: "2.5123 ETH",
       totalInUsd: "$ 2,512.3",
       changes: 4.06,
@@ -40,6 +47,8 @@ const Tokens = () => {
       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkEzES9ycJhLhhBprH6T-T0uiUEfZTyth2Sg&s",
     },
   ];
+
+  const router = useRouter();
   return (
     <View className="">
       <FlatList
@@ -49,7 +58,16 @@ const Tokens = () => {
           gap: 8,
         }}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => <TokenItem {...item} />}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => {
+              console.log(`tetet`);
+              router.navigate("/token-detail");
+            }}
+          >
+            <TokenItem {...item} />
+          </TouchableOpacity>
+        )}
       />
     </View>
   );

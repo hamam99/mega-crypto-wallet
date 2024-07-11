@@ -8,7 +8,7 @@ const TokenItem = (token: TokenType) => {
   const isUp = token.changes >= 0;
 
   return (
-    <TouchableOpacity
+    <View
       className="w-full flex-row bg-white h-[60px] items-center rounded-lg px-3 space-x-3 "
       key={token.id}
     >
@@ -37,7 +37,7 @@ const TokenItem = (token: TokenType) => {
           </Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
