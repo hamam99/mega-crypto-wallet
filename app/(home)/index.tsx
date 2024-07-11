@@ -4,13 +4,14 @@ import { AntDesign, Feather } from "@expo/vector-icons";
 import AssetsTotal from "@/components/shared/assets-total";
 import Menu from "@/components/separate/home/menu";
 import ListToken from "@/components/separate/home/list-token";
-import AccountModal, {
-  AccountModalRef,
-} from "@/components/separate/home/AccountModal";
+import AccountModal from "@/components/separate/home/AccountModal";
 import { useRef } from "react";
+import NetworkModal from "@/components/separate/home/NetworkModal";
+import { ModalRef } from "@/entities/ModalRef";
 
 const Home = () => {
-  const accountModalRef = useRef<AccountModalRef>(null);
+  const accountModalRef = useRef<ModalRef>(null);
+  const networkModalRef = useRef<ModalRef>(null);
 
   return (
     <View className="flex-1 p-[24px]">
@@ -21,7 +22,10 @@ const Home = () => {
             avatar={"https://picsum.photos/200/200"}
           />
         </TouchableOpacity>
-        <TouchableOpacity className="flex-row items-center gap-x-2 py-1">
+        <TouchableOpacity
+          className="flex-row items-center gap-x-2 py-1"
+          onPress={() => networkModalRef?.current?.openModal()}
+        >
           <Text>Etherium network</Text>
           <AntDesign name="down" size={8} color="black" />
         </TouchableOpacity>
@@ -30,6 +34,7 @@ const Home = () => {
       <Menu />
       <ListToken />
       <AccountModal ref={accountModalRef} />
+      <NetworkModal ref={networkModalRef} />
     </View>
   );
 };

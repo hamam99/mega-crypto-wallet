@@ -1,34 +1,28 @@
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
 import { Ref, forwardRef, useImperativeHandle, useRef, useState } from "react";
-import InputPassword from "@/components/shared/input-password";
-import Button from "@/components/shared/button";
-import AccountBar from "@/components/shared/account-bar";
 import { Feather } from "@expo/vector-icons";
 import { ModalRef } from "@/entities/ModalRef";
-import { Accounts } from "@/entities/Accounts";
+import { Networks } from "@/entities/Networks";
 
-export interface AccountModalProps {}
+export interface NetworkModalProps {}
 
-const MOCK_ACCOUNTS: Accounts[] = [
+const MockNetwork: Networks[] = [
   {
     id: 1,
-    name: "Queen Bee",
-    avatar: "https://picsum.photos/seed/picsum/200/200",
+    name: "Ethereum Main Network",
   },
   {
     id: 2,
     name: "Lalimo Rubik",
-    avatar: "https://picsum.photos/seed/picsum/200/200",
   },
   {
     id: 3,
     name: "Neil Momo",
-    avatar: "https://picsum.photos/seed/picsum/200/200",
   },
 ];
 
-const AccountModal = (props: AccountModalProps, ref: Ref<ModalRef>) => {
+const NetworkModal = (props: NetworkModalProps, ref: Ref<ModalRef>) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   useImperativeHandle(ref, () => ({
@@ -41,16 +35,17 @@ const AccountModal = (props: AccountModalProps, ref: Ref<ModalRef>) => {
     },
   }));
 
-  const [selectedAccount, setSelectedAccount] = useState<Accounts>(
-    MOCK_ACCOUNTS[0],
+  const [selectedNetwork, setSelectedNetwork] = useState<Networks>(
+    MockNetwork[0],
   );
 
-  const onSelectAccount = (account: Accounts) => {
-    setSelectedAccount(account);
+  const onSelectNetwork = (account: Networks) => {
+    setSelectedNetwork(account);
     setTimeout(() => {
       bottomSheetRef?.current?.close();
     }, 300);
   };
+
   return (
     <BottomSheet
       ref={bottomSheetRef}
@@ -66,15 +61,18 @@ const AccountModal = (props: AccountModalProps, ref: Ref<ModalRef>) => {
       <View className="px-5">
         <Text className="font-bold text-lg">Account</Text>
         <FlatList
-          data={MOCK_ACCOUNTS}
+          data={MockNetwork}
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                onPress={() => onSelectAccount(item)}
-                className="flex-row items-center py-2  justify-between"
+                onPress={() => onSelectNetwork(item)}
+                className="flex-row items-center py-2 space-x-3"
               >
-                <AccountBar avatar={item?.avatar} name={item?.name} />
-                {selectedAccount?.id === item?.id && (
+                <View className="w-[4px] h-[4px] rounded-full bg-red-600" />
+                <Text className="text-sm text-slate-400 flex-1">
+                  {item?.name}
+                </Text>
+                {selectedNetwork?.id === item?.id && (
                   <Feather name="check" size={20} color="green" />
                 )}
               </TouchableOpacity>
@@ -86,4 +84,4 @@ const AccountModal = (props: AccountModalProps, ref: Ref<ModalRef>) => {
   );
 };
 
-export default forwardRef(AccountModal);
+export default forwardRef(NetworkModal);
